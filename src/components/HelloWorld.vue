@@ -10,6 +10,9 @@
     <!-- service section start -->
     <!-- <OurOffer /> -->
     <!-- service section end -->
+    <!-- testimonial section start -->
+    <TestimonialSection />
+    <!-- testimonial section end -->
     <!-- case studies section start -->
     <!-- <CaseStudy /> -->
     <!-- case studies section end -->
@@ -28,13 +31,9 @@
 
 
     <!-- brand section start -->
-    <Brand />
+    <!-- <Brand /> -->
     <!-- brand section start -->
 
-    <!-- testimonial section start -->
-
-    <TestimonialSection />
-    <!-- testimonial section end -->
     <!-- blog section end -->
     <!-- <BlogSection /> -->
     <!-- blog section start -->
@@ -48,7 +47,7 @@ import TopHeader from "@/components/TopHeader.vue";
 import Header from "@/components/Header.vue";
 // import BlogSection from "@/components/BlogSection.vue";
 import TopRanking from "@/components/TopRanking.vue";
-import Brand from "@/components/Brands.vue";
+// import Brand from "@/components/Brands.vue";
 import WorkingProcess from "@/components/WorkingProcess.vue";
 // import TeamSection from "@/components/TeamSection.vue";
 // import OurOffer from "@/components/OurOffer.vue";
@@ -65,7 +64,7 @@ export default {
     TopRanking,
     WorkingProcess,
     // OurOffer,
-    Brand,
+    // Brand,
     // BlogSection,
     // TeamSection,
     FaqSection,
