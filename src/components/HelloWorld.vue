@@ -10,34 +10,27 @@
     <!-- service section start -->
     <!-- <OurOffer /> -->
     <!-- service section end -->
+    <!-- faq section start -->
+    <FaqSection />
+    <!-- faq team section end -->
     <!-- testimonial section start -->
     <TestimonialSection />
     <!-- testimonial section end -->
     <!-- case studies section start -->
     <!-- <CaseStudy /> -->
     <!-- case studies section end -->
-    <!-- faq section start -->
-    <FaqSection />
-    <!-- faq team section end -->
-
     <!-- about section start -->
     <!-- <AboutSection /> -->
     <!-- about section end -->
-
-
     <!-- team section start -->
     <!-- <TeamSection /> -->
     <!-- team section end -->
-
-
     <!-- brand section start -->
     <!-- <Brand /> -->
     <!-- brand section start -->
-
     <!-- blog section end -->
     <!-- <BlogSection /> -->
     <!-- blog section start -->
-
     <Footer />
   </div>
 </template>

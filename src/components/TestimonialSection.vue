@@ -18,17 +18,22 @@
       <div class="row position-relative">
         <div class="clients">
           <img
-            src="assets/images/testimonial/2.png"
+            src="assets/images/testimonial/joe.png"
             alt="images-not_found"
             class="client"
           />
           <img
-            src="assets/images/testimonial/5.png"
+            src="assets/images/testimonial/sasu.png"
             alt="images-not_found"
             class="client"
           />
           <img
-            src="assets/images/testimonial/7.png"
+            src="assets/images/testimonial/ify.png"
+            alt="images-not_found"
+            class="client"
+          />
+          <img
+            src="assets/images/testimonial/gift.png"
             alt="images-not_found"
             class="client"
           />
@@ -52,7 +57,7 @@
                     <div class="profile-wrap">
                       <img
                         class="testimonial-profile"
-                        src="assets/images/testimonial/lg-3.png"
+                        src="assets/images/testimonial/joe.png"
                         alt="images-not_found"
                       />
                       <span class="quote">“</span>
@@ -82,7 +87,7 @@
                     <div class="profile-wrap">
                       <img
                         class="testimonial-profile"
-                        src="assets/images/testimonial/1.png"
+                        src="assets/images/testimonial/sasu.png"
                         alt="images-not_found"
                       />
                       <span class="quote">“</span>
@@ -97,7 +102,7 @@
                       initiatives, including web application Landearn, Bumasys,
                       MyJobDesk, and other continuing initiatives.
                     </p>
-                    <h5 class="sub-title">Mumen Elijah</h5>
+                    <h5 class="sub-title">Mumen Osasumwen</h5>
                     <span class="designation">Ui/Ux designer</span>
                   </div>
                   <!-- swiper-slide end -->
@@ -110,7 +115,7 @@
                     <div class="profile-wrap">
                       <img
                         class="testimonial-profile"
-                        src="assets/images/testimonial/lg-2.png"
+                        src="assets/images/testimonial/ify.png"
                         alt="images-not_found"
                       />
                       <span class="quote">“</span>
@@ -139,7 +144,7 @@
                     <div class="profile-wrap">
                       <img
                         class="testimonial-profile"
-                        src="assets/images/testimonial/lg-4.png"
+                        src="assets/images/testimonial/gift.png"
                         alt="images-not_found"
                       />
                       <span class="quote">“</span>

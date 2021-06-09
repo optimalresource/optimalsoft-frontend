@@ -151,16 +151,18 @@
               <form
                 id="mc-form"
                 action="#"
-                class="news-letter-form position-relative"
+                class="news-letter-form position-relative needs-validation"
+                
               >
                 <input
                   id="mc-email"
                   class="form-control"
                   type="text"
-                  required=""
                   placeholder="Enter Your Email Address"
+                  aria-label="Disabled input example" disabled
                 />
-                <button class="btn btn-warning">
+                <div class="valid-feedback">Looks good!</div>
+                <button disabled  class="btn btn-warning">
                   Subscribe Now <i class="icofont-rounded-double-right"></i>
                 </button>
               </form>
