@@ -53,9 +53,7 @@
                     </div>
                     <div class="content">
                       <span class="text">Phone:</span>
-                      <a href="tel:090536091527" class="number"
-                        >090536091527</a
-                      >
+                      <a href="tel:090536091527" class="number">090536091527</a>
                     </div>
                   </div>
                   <!-- contact media end -->
@@ -105,6 +103,7 @@
                           placeholder="Enter Your Name"
                           type="text"
                           name="name"
+                          v-model="contact.name"
                         />
                       </div>
                       <div class="col-12 col-sm-6">
@@ -113,6 +112,7 @@
                           placeholder="Enter Your Email"
                           type="text"
                           name="email"
+                          v-model="contact.email"
                         />
                       </div>
                       <!-- <div class="col-12">
@@ -131,10 +131,15 @@
                           id="textarea"
                           cols="30"
                           rows="10"
+                          v-model="contact.message"
                         ></textarea>
                       </div>
                       <div class="col-12">
-                        <button type="submit" class="btn btn-warning">
+                        <button
+                          @click.prevent="sendMessage"
+                          type="submit"
+                          class="btn btn-warning"
+                        >
                           Submit
                           <i class="icofont-rounded-double-right"></i>
                         </button>
@@ -142,12 +147,6 @@
                     </form>
                     <p class="form-message"></p>
                   </div>
-                </div>
-                <div class="col-12 mb-7">
-                  <iframe
-                    class="google-map"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d65368563.61295087!2d-117.82461439612302!3d-0.2494932804537185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x65a81cae36eb8ff%3A0xa6342257f310534f!2sAtlantic%20Ocean!5e0!3m2!1sen!2sbd!4v1614241876365!5m2!1sen!2sbd"
-                  ></iframe>
                 </div>
               </div>
             </div>
@@ -181,11 +180,127 @@
 <script>
 // import TopHeader from "@/components/TopHeader.vue";
 // import Header from "@/components/Header.vue";
-
+import axios from "axios";
+import { useToast } from "vue-toastification";
 export default {
+  setup() {
+    const toast = useToast();
+    return { toast };
+  },
+  data() {
+    return {
+      contact: {
+        name: "",
+        email: "",
+        message: "",
+      },
+    };
+  },
   components: {
     // Header,
     // TopHeader,
+  },
+  methods: {
+    validateEmail(email) {
+      const re =
+        /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))*$/;
+      return re.test(email);
+    },
+    sendMessage: function () {
+      if (this.contact.name == "") {
+        this.toast.error("Tell us your name", {
+          position: "top-right",
+          timeout: 2000,
+          closeOnClick: false,
+          pauseOnFocusLoss: true,
+          pauseOnHover: false,
+          draggable: true,
+          draggablePercent: 0.6,
+          showCloseButtonOnHover: false,
+          hideProgressBar: true,
+          closeButton: false,
+          icon: true,
+          rtl: false,
+        });
+        return false;
+      }
+      if (this.contact.email == "") {
+        this.toast.error("Tell us your email", {
+          position: "top-right",
+          timeout: 2000,
+          closeOnClick: false,
+          pauseOnFocusLoss: true,
+          pauseOnHover: false,
+          draggable: true,
+          draggablePercent: 0.6,
+          showCloseButtonOnHover: false,
+          hideProgressBar: true,
+          closeButton: false,
+          icon: true,
+          rtl: false,
+        });
+        return false;
+      }
+      if (this.contact.message == "") {
+        this.toast.error("Write something", {
+          position: "top-right",
+          timeout: 2000,
+          closeOnClick: false,
+          pauseOnFocusLoss: true,
+          pauseOnHover: false,
+          draggable: true,
+          draggablePercent: 0.6,
+          showCloseButtonOnHover: false,
+          hideProgressBar: true,
+          closeButton: false,
+          icon: true,
+          rtl: false,
+        });
+        return false;
+      }
+      axios
+        .post("https://api.optimalsoft.co/api/contact_info", this.contact)
+        .then((response) => {
+          console.log(response);
+          if (response.status == "200") {
+            this.toast.success(
+              "We have recieved your message and will get back to you soon",
+              {
+                position: "top-right",
+                timeout: 2000,
+                closeOnClick: false,
+                pauseOnFocusLoss: true,
+                pauseOnHover: false,
+                draggable: true,
+                draggablePercent: 0.6,
+                showCloseButtonOnHover: false,
+                hideProgressBar: true,
+                closeButton: true,
+                icon: true,
+                rtl: false,
+              }
+            );
+          }
+          // if (response.status == "201") {
+          //   this.toast.success("Thank you. We'd get back to you");
+          // } else {
+          //   this.toast.error("oops.. an error occured");
+          //   return false;
+          // }
+        })
+        .catch((error) => {
+          if (typeof error === "object" && error !== null) {
+            for (const property in error) {
+              this.toast.error(error[property]);
+            }
+          } else {
+            this.toast.error(error);
+          }
+          this.spin = false;
+          this.notSpin = true;
+          return false;
+        });
+    },
   },
 };
 </script>
